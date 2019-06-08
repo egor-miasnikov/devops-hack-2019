@@ -5,22 +5,22 @@ steps:
     dir: 'src/currencyservice'
   #step 2
   - name: 'gcr.io/cloud-builders/kubectl'
-    args: ['apply', '-f', '.']
+    args: ['apply', '-f', 'deployment.yaml']
     env:
       - 'CLOUDSDK_COMPUTE_REGION=europe-west4'
       - 'CLOUDSDK_CONTAINER_CLUSTER=hackaton2019-gke-cluster'
   #step 3
-  - name: 'gcr.io/cloud-builders/kubectl'
-    args: [
-      'set',
-      'image',
-      'deployment',
-      'currencyservice',
-      'currencyservice=gcr.io/hackaton2019-242912/currencyservice'
-    ]
-    env:
-      - 'CLOUDSDK_COMPUTE_REGION=europe-west4'
-      - 'CLOUDSDK_CONTAINER_CLUSTER=hackaton2019-gke-cluster'
+#  - name: 'gcr.io/cloud-builders/kubectl'
+#    args: [
+#      'set',
+#      'image',
+#      'deployment',
+#      'currencyservice',
+#      'currencyservice=gcr.io/hackaton2019-242912/currencyservice'
+#    ]
+#    env:
+#      - 'CLOUDSDK_COMPUTE_REGION=europe-west4'
+#      - 'CLOUDSDK_CONTAINER_CLUSTER=hackaton2019-gke-cluster'
 
 #  - name: 'gcr.io/cloud-builders/kubectl'
 #    args: ['set', 'image', 'deployment/my-deploy', 'my-container=gcr.io/hackaton2019-242912/currencyservice']

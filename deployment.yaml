@@ -28,7 +28,7 @@ spec:
       terminationGracePeriodSeconds: 5
       containers:
       - name: server
-        image: currencyservice
+        image: gcr.io/hackaton2019-242912/currencyservice
         ports:
         - name: grpc
           containerPort: 7000

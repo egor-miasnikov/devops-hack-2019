@@ -4,7 +4,7 @@ steps:
   - name: 'gcr.io/cloud-builders/docker'
     args: ['push', 'gcr.io/hackaton2019-242912/currencyservice']
   - name: 'gcr.io/cloud-builders/kubectl'
-    args: ['set', 'image', 'deployment/my-deployment', 'my-container=gcr.io/hackaton2019-242912/currencyservice']
+    args: ['set', 'image', 'jenkins/my-deploy', 'my-container=gcr.io/hackaton2019-242912/currencyservice']
     env:
       - 'CLOUDSDK_COMPUTE_REGION=europe-west4'
       - 'CLOUDSDK_CONTAINER_CLUSTER=hackaton2019-gke-cluster'

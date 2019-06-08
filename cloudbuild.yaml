@@ -1,0 +1,11 @@
+steps:
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'gcr.io/hackaton2019-242912/src/currencyservice', '.']
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'gcr.io/hackaton2019-242912/src/currencyservice']
+  - name: 'gcr.io/cloud-builders/kubectl'
+    args: ['set', 'image', 'deployment/my-deployment', 'my-container=gcr.io/hackaton2019-242912/src/currencyservice']
+    env:
+      - 'CLOUDSDK_COMPUTE_ZONE=europe-west4-a'
+      - 'CLOUDSDK_CONTAINER_CLUSTER=my-cluster'
+tags: ['test_cloud_build']
